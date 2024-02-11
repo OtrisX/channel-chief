@@ -1,0 +1,12 @@
+{
+  "material-icon-theme.folders.associations": {
+    "filters": "Rules",
+    "entities": "Class",
+    "dto": "Shared",
+    "strategies": "Fastlane"
+  },
+  "material-icon-theme.activeIconPack": "nest",
+  "explorer.compactFolders": false,
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "workbench.tree.indent": 20
+}
