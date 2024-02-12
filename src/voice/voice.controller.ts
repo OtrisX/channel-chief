@@ -1,6 +1,5 @@
-import { Injectable, Logger } from '@nestjs/common';
-import { NewsChannel } from 'discord.js';
-import { Once, On, Context, ContextOf } from 'necord';
+import { Injectable } from '@nestjs/common';
+import { On, Context, ContextOf } from 'necord';
 
 const voiceChannelEmojis: string[] = ['🟥', '🟧', '🟨', '🟦', '🟪', '🟫', '🌈'];
 
@@ -34,7 +33,7 @@ export class VoiceController {
 
   @On('voiceStateUpdate')
   public async onLeave(
-    @Context() [oldState, newState]: ContextOf<'voiceStateUpdate'>,
+    @Context() [oldState, _]: ContextOf<'voiceStateUpdate'>,
   ) {
     const regex = new RegExp(`^${voiceChannelEmojis.join('|')}`);
 

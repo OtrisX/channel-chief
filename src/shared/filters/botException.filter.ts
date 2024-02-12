@@ -1,9 +1,7 @@
 import { ArgumentsHost, Catch, ExceptionFilter } from '@nestjs/common';
 import { ValidationError } from 'class-validator';
+import { EmbedBuilder } from 'discord.js';
 import { ModalContext, NecordArgumentsHost, SlashCommandContext } from 'necord';
-const { EmbedBuilder } = require('discord.js');
-
-type Constraints = { [key: string]: string }[];
 
 export class BotError extends Error {
   constructor(validationError: ValidationError[]) {

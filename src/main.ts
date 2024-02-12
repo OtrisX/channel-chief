@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { DiscordModule } from './discord.module';
-import { ValidationError, ValidationPipe } from '@nestjs/common';
+import { ValidationPipe } from '@nestjs/common';
 import {
   BotError,
   BotInputExceptionFilter,

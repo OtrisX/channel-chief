@@ -6,7 +6,5 @@
     "strategies": "Fastlane"
   },
   "material-icon-theme.activeIconPack": "nest",
-  "explorer.compactFolders": false,
-  "typescript.preferences.importModuleSpecifier": "relative",
-  "workbench.tree.indent": 20
+  "workbench.tree.indent": 30
 }
