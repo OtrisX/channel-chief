@@ -1,4 +1,11 @@
-import { IsNotEmpty, IsPhoneNumber, Length } from 'class-validator';
+import {
+  IsNotEmpty,
+  IsNumber,
+  IsNumberString,
+  IsPhoneNumber,
+  IsString,
+  Length,
+} from 'class-validator';
 import { StringOption } from 'necord';
 
 export class VoiceHubCreateDto {
@@ -10,4 +17,23 @@ export class VoiceHubCreateDto {
     required: true,
   })
   name: string;
+
+  @IsNumberString()
+  @Length(19, 19)
+  @IsNotEmpty()
+  @StringOption({
+    name: 'parentid',
+    description: 'ID of the parent category',
+    required: true,
+  })
+  parentId: string;
+
+  @IsNotEmpty()
+  @IsString()
+  @StringOption({
+    name: 'alias',
+    description: '[alias] | [voice owner name]',
+    required: true,
+  })
+  tempChannelAlias: string;
 }

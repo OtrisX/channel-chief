@@ -1,17 +1,6 @@
 version: '3'
 
 services:
-  channel-chief:
-    build: .
-    command: npm run start:dev
-    ports:
-      - '3000:3000'
-    volumes:
-      - .:/usr/src/app
-    networks:
-      - channel-chief-network
-    depends_on:
-      - db
   db:
     image: 'docker.io/library/postgres:11'
     environment:
@@ -19,7 +8,7 @@ services:
       POSTGRES_USER: 'postgres'
       POSTGRES_PASSWORD: 'postgres'
     ports:
-      - '5432:5432'
+      - '1212:5432'
     volumes:
       - 'channel-chief-db:/var/lib/postgresql/data'
     restart: always
