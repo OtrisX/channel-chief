@@ -3,10 +3,15 @@ FROM node:18-alpine
 WORKDIR /usr/src/app
 
 COPY package*.json ./
+COPY prisma ./prisma
+
 RUN npm install
 
 COPY . . 
 
 EXPOSE 3000
 
-CMD ["sh", "-c", "npm run start:dev"]
+
+RUN npm run build
+
+CMD ["npm", "run", "start:prod"]

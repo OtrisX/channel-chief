@@ -1,17 +1,29 @@
-version: '3'
+version: '3.4'
 
 services:
+  bot:
+    build: .
+    ports:
+      - '3000:3000'
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+      DISCORD_TOKEN: ${DISCORD_TOKEN}
+    depends_on:
+      - db
+    networks:
+      - channel-chief-network
+
   db:
-    image: 'docker.io/library/postgres:11'
+    image: 'postgres:11'
+    restart: always
     environment:
       POSTGRES_DB: 'channel-chief'
       POSTGRES_USER: 'postgres'
       POSTGRES_PASSWORD: 'postgres'
     ports:
-      - '1212:5432'
+      - '5432:5432'
     volumes:
-      - 'channel-chief-db:/var/lib/postgresql/data'
-    restart: always
+      - channel-chief-db:/var/lib/postgresql/data
     networks:
       - channel-chief-network
 
